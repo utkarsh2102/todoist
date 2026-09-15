@@ -1,0 +1,12 @@
+{
+  "name": "@todist/shared",
+  "private": true,
+  "description": "Isomorphic domain code shared by the web app and the API.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p ."
+  }
+}

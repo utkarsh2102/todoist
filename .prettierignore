@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+**/dist/
+**/.data/
+coverage/
+# Hand-written long-form docs keep their authored formatting.
+docs/

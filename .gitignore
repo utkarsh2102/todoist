@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.data/
+.netlify/
+playwright-report/
+test-results/
+*.log
+.DS_Store
+
+# Local secrets — see .env.example
+.env
+.env.local
+.env.*.local
