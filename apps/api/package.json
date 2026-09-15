@@ -1,0 +1,21 @@
+{
+  "name": "@todist/api",
+  "private": true,
+  "description": "Hono API; runs as a Node server locally and as Netlify Functions in production.",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/node.ts",
+    "start": "tsx src/node.ts",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "@todist/shared": "workspace:*",
+    "hono": "^4.13.9",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.0",
+    "tsx": "^4.23.15"
+  }
+}
