@@ -8,6 +8,8 @@
     "node": ">=24"
   },
   "scripts": {
+    "dev": "pnpm --parallel --filter @todist/api --filter @todist/web run dev",
+    "build": "pnpm --filter @todist/web run build",
     "typecheck": "pnpm -r --parallel run typecheck",
     "lint": "eslint .",
     "format": "prettier --write .",
