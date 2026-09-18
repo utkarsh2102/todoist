@@ -6,16 +6,21 @@
   "scripts": {
     "dev": "tsx watch src/node.ts",
     "start": "tsx src/node.ts",
-    "typecheck": "tsc --noEmit -p ."
+    "typecheck": "tsc --noEmit -p .",
+    "db:generate": "drizzle-kit generate",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.1",
+    "@libsql/client": "^0.18.0",
     "@todist/shared": "workspace:*",
+    "drizzle-orm": "^0.45.3",
     "hono": "^4.13.9",
     "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/node": "^24.19.0",
+    "drizzle-kit": "^0.31.11",
     "tsx": "^4.23.15"
   }
 }
