@@ -10,6 +10,16 @@ Guidance for working on this repository. The approved architecture and phase pla
 - `pnpm verify` — typecheck + lint + format check + tests; **must pass before a phase is done**
 - `pnpm test` — Vitest across `apps/*` and `packages/*`
 - `pnpm build` — production build of the web app
+- `pnpm db:generate` — create a SQL migration from `apps/api/src/db/schema.ts` (review the SQL!)
+- `pnpm db:migrate` / `pnpm db:seed` — apply migrations / add dev sample data (local `.data/todist.db`)
+
+## Database
+
+- SQLite via libSQL: `.data/todist.db` locally, `:memory:` in tests (`test/helpers.ts#createTestDb`),
+  Turso in production. Drizzle ORM; schema in `apps/api/src/db/schema.ts`.
+- Reference data (the four categories) is seeded by a custom migration, so it exists everywhere.
+- CHECK constraints back up Zod validation. Remember SQL three-valued logic: a CHECK passes when
+  it evaluates to NULL, so write `x IS NOT NULL AND x IN (…)` where NULL must be rejected.
 
 ## Layout
 

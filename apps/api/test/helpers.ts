@@ -1,4 +1,9 @@
+import { type Config, loadConfig } from '../src/config';
 import { type DbHandle, migrateDb, openDb } from '../src/db/client';
+
+export function testConfig(env: Record<string, string> = {}): Config {
+  return loadConfig({ APP_ENV: 'test', TURSO_DATABASE_URL: ':memory:', ...env });
+}
 
 /** A fresh, fully migrated in-memory database per call. */
 export async function createTestDb(): Promise<DbHandle> {

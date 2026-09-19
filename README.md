@@ -11,7 +11,9 @@ assistant through clean adapters.
 
 ## Status
 
-Phase 0 (bootstrap) of the [implementation phases](docs/plan-v1.md#n-implementation-phases).
+Phases 0 (bootstrap) and 1 (data model and shared domain) of the
+[implementation phases](docs/plan-v1.md#n-implementation-phases) are done. There is no task UI
+yet; the page only reports whether the API and database are reachable.
 
 ## Quick start
 
@@ -19,19 +21,25 @@ Prerequisites: Node.js 24 LTS and pnpm (`corepack enable pnpm`, or install pnpm 
 
 ```sh
 pnpm install
-cp .env.example .env.local   # optional in Phase 0; defaults work locally
+cp .env.example .env.local   # optional for now; defaults work locally
+pnpm db:seed                 # optional: sample users and tasks in .data/todist.db
 pnpm dev                     # web on http://localhost:5173, API on :8787 (proxied)
 ```
 
+The API applies database migrations automatically when it starts locally.
+
 ## Commands
 
-| Command       | What it does                                         |
-| ------------- | ---------------------------------------------------- |
-| `pnpm dev`    | Run the web app and API with reload                  |
-| `pnpm verify` | Typecheck, lint, format check and tests (CI runs it) |
-| `pnpm test`   | Unit and integration tests (Vitest)                  |
-| `pnpm build`  | Production build of the web app                      |
-| `pnpm format` | Format everything with Prettier                      |
+| Command            | What it does                                         |
+| ------------------ | ---------------------------------------------------- |
+| `pnpm dev`         | Run the web app and API with reload                  |
+| `pnpm verify`      | Typecheck, lint, format check and tests (CI runs it) |
+| `pnpm test`        | Unit and integration tests (Vitest)                  |
+| `pnpm build`       | Production build of the web app                      |
+| `pnpm format`      | Format everything with Prettier                      |
+| `pnpm db:migrate`  | Apply database migrations (local file by default)    |
+| `pnpm db:seed`     | Add sample data for local development                |
+| `pnpm db:generate` | Create a migration after changing the schema         |
 
 ## Layout
 
