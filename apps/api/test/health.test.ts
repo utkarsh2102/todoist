@@ -36,6 +36,7 @@ describe('loadConfig', () => {
   it('applies local defaults', () => {
     expect(loadConfig({})).toEqual({
       appEnv: 'development',
+      host: '127.0.0.1',
       port: 8787,
       appOrigin: 'http://localhost:5173',
       commitSha: 'dev',

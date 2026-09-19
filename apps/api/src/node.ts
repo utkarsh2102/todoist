@@ -15,8 +15,8 @@ await migrateDb(db);
 
 const app = createApp({ config, db });
 
-serve({ fetch: app.fetch, port: config.port }, (info) => {
+serve({ fetch: app.fetch, hostname: config.host, port: config.port }, (info) => {
   console.log(
-    `API listening on http://localhost:${info.port} (${config.appEnv}, db ${describeDatabase(config.databaseUrl)})`,
+    `API listening on http://${config.host}:${info.port} (${config.appEnv}, db ${describeDatabase(config.databaseUrl)})`,
   );
 });

@@ -6,6 +6,8 @@ import { z } from 'zod';
 const EnvSchema = z
   .object({
     APP_ENV: z.enum(['development', 'test', 'production']).default('development'),
+    // Loopback by default so a local server is never reachable from the network.
+    HOST: z.string().min(1).default('127.0.0.1'),
     PORT: z.coerce.number().int().min(1).max(65535).default(8787),
     APP_ORIGIN: z.url().default('http://localhost:5173'),
     COMMIT_SHA: z.string().min(1).default('dev'),
@@ -25,6 +27,7 @@ const EnvSchema = z
 
 export interface Config {
   appEnv: 'development' | 'test' | 'production';
+  host: string;
   port: number;
   appOrigin: string;
   commitSha: string;
@@ -44,6 +47,7 @@ export function loadConfig(env: Record<string, string | undefined> = process.env
   const e = parsed.data;
   return {
     appEnv: e.APP_ENV,
+    host: e.HOST,
     port: e.PORT,
     appOrigin: e.APP_ORIGIN,
     commitSha: e.COMMIT_SHA,
