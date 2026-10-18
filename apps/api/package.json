@@ -13,15 +13,15 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@hono/node-server": "^2.1.1",
+    "@hono/node-server": "^2.1.5",
     "@libsql/client": "^0.18.0",
     "@todist/shared": "workspace:*",
-    "drizzle-orm": "^0.45.3",
-    "hono": "^4.13.9",
-    "zod": "^4.6.5"
+    "drizzle-orm": "^0.45.4",
+    "hono": "^4.13.13",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@types/node": "^24.19.0",
+    "@types/node": "^24.19.2",
     "drizzle-kit": "^0.31.11",
     "tsx": "^4.23.15"
   }
